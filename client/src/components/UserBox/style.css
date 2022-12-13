@@ -1,0 +1,10 @@
+.users-container {
+  height: calc(100vh - 70px);
+}
+
+.user-image {
+  height: 104px;
+  width: 104px !important;
+  border-radius: 50% !important;
+  margin: auto;
+}

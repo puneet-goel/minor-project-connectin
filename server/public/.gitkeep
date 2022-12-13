@@ -1,0 +1,1 @@
+Since Git removes or doesn't add empty directories to a repository, .gitkeep is sort of a hack (I don't think it's officially named as a part of Git) to keep empty directories in the repository

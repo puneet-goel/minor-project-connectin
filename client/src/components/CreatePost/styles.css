@@ -1,0 +1,22 @@
+.ck-editor__editable {
+  min-height: 250px;
+  max-height: 250px;
+}
+
+.form-container {
+  overflow: scroll;
+  height: calc(100vh - 70px);
+}
+
+.header-modal-form {
+  font-family: 'Proxima Nova';
+}
+
+.post-photo-container {
+  text-align: center;
+}
+
+.user-photo {
+  width: 300px;
+  height: 300px;
+}

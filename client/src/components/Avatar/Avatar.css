@@ -1,0 +1,14 @@
+.avatar {
+  border-radius: 50%;
+  width: 104px;
+  height: 104px;
+}
+
+.avatarText {
+  margin: 0;
+  color: white;
+  font-size: 50px;
+  top: 8%;
+  font-weight: bolder;
+  position: relative;
+}

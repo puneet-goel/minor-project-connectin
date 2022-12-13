@@ -1,0 +1,9 @@
+.posttabs {
+  height: calc(100vh - 70px);
+  padding: 10px;
+  overflow: scroll;
+}
+
+.post-heading {
+  font-family: 'Proxima Nova';
+}
