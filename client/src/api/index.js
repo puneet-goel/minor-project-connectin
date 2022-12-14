@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const URL = 'https://social-media-ctxa.onrender.com';
-const URL = 'http://localhost:5000';
+const URL = 'https://social-media-ctxa.onrender.com';
+// const URL = 'http://localhost:5000';
 
 const postUrl = URL + '/posts';
 const authUrl = URL + '/auth';
