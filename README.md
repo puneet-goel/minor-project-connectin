@@ -10,7 +10,7 @@ https://connectin-puneet.netlify.app
 
 (Render) Backend Link:
 <br />
-https://social-media-ctxa.onrender.com
+https://connectin.onrender.com
 
 <!--  Features -->
 
