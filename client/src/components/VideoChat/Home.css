@@ -1,4 +1,4 @@
-.video-chat{
+.video-chat {
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -18,24 +18,31 @@
   margin-top: 20px !important;
 }
 
-.player-chat{
+.notifier {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.player-chat {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.video-container{
+.video-container {
   padding: 10px;
+  text-align: center;
   border: 2px solid black;
   margin: 10px;
 }
 
 .video-container video {
-  width: 550px;
+  width: 100%;
 }
 
-@media all and (max-width: 300px) {
-  .video-container video{
-    width: 300px;
+@media all and (max-width: 500px) {
+  .player-chat{
+    flex-direction: column;
   }
 }

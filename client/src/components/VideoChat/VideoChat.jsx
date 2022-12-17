@@ -36,8 +36,8 @@ const Header = () => {
         </Button>
       </CopyToClipboard>
       {call.isReceivingCall && !callAccepted && (
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-          <h1>{call.name} is calling:</h1>
+        <div className="notifier">
+          <h5>{call.name} is calling:</h5>
           <Button variant="contained" color="primary" onClick={answerCall}>
             Answer
           </Button>
@@ -72,13 +72,15 @@ const Player = () => {
 
 const VideoChat = () => {
   return (
-    <ContextProvider>
+    <>
       <NavBar disableSearch={true} />
       <div className="video-chat">
-        <Header />
-        <Player />
+        <ContextProvider>
+          <Header />
+          <Player />
+        </ContextProvider>
       </div>
-    </ContextProvider>
+    </>
   );
 };
 

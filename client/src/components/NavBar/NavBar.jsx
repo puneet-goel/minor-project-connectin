@@ -191,7 +191,7 @@ const NavBar = ({ searchText, setSearchText, disableSearch }) => {
                   </ListItem>
                   <ListItem button>
                     <ListItemText
-                      primary="V Meet: Video Text-Chat with your friend"
+                      primary="Video Chat with your friend"
                       onClick={() => navigate('/video-chat')}
                     />
                   </ListItem>
