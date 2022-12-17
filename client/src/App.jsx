@@ -21,6 +21,7 @@ const AuthenticationLoading = lazy(() =>
 const UserBox = lazy(() => import('./components/UserBox/UserBox.jsx'));
 const Profile = lazy(() => import('./components/Profile/Profile.jsx'));
 const EditPost = lazy(() => import('./components/CreatePost/CreatePost.jsx'));
+const VideoChat = lazy(() => import('./components/VideoChat/VideoChat.jsx'));
 
 const App = () => {
   const isUserValid = useSelector((state) => state.profile);
@@ -56,6 +57,7 @@ const App = () => {
   const UserBoxWithSuspense = suspenseWrapper(UserBox);
   const ProfileWithSuspense = suspenseWrapper(Profile);
   const EditPostWithSuspense = suspenseWrapper(EditPost);
+  const VideoChatWithSuspense = suspenseWrapper(VideoChat);
 
   return (
     <BrowserRouter>
@@ -137,6 +139,16 @@ const App = () => {
           element={
             isUserValid ? (
               <EditPostWithSuspense />
+            ) : (
+              <AuthenticationLoadingWithSuspense failure="/" />
+            )
+          }
+        />
+        <Route
+          path="/video-chat"
+          element={
+            isUserValid ? (
+              <VideoChatWithSuspense />
             ) : (
               <AuthenticationLoadingWithSuspense failure="/" />
             )

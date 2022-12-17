@@ -192,9 +192,7 @@ const NavBar = ({ searchText, setSearchText, disableSearch }) => {
                   <ListItem button>
                     <ListItemText
                       primary="V Meet: Video Text-Chat with your friend"
-                      onClick={() =>
-                        window.open('https://v-meet-puneet.netlify.app/')
-                      }
+                      onClick={() => navigate('/video-chat')}
                     />
                   </ListItem>
                   <ListItem button>
@@ -271,9 +269,7 @@ const NavBar = ({ searchText, setSearchText, disableSearch }) => {
               <IconButton
                 edge="end"
                 aria-label="Video chat"
-                onClick={() =>
-                  window.open('https://v-meet-puneet.netlify.app/')
-                }
+                onClick={() => navigate('/video-chat')}
                 color="inherit"
               >
                 <VoiceChatIcon fontSize="large" />

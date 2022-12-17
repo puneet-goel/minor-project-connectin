@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://social-media-ctxa.onrender.com';
+const URL = 'https://connectin.onrender.com';
 // const URL = 'http://localhost:5000';
 
 const postUrl = URL + '/posts';
