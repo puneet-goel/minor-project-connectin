@@ -4,9 +4,11 @@ import {
   UPDATE,
   DELETE,
   LIKE,
+  ADD_COMMENT,
+  DELETE_COMMENT,
 } from '../constants/actionTypes';
 import * as api from '../api';
-import { findToken } from '../utility/index.js';
+import { findToken, parseFullUsername } from '../utility/index.js';
 
 //Action Creators
 
@@ -129,4 +131,49 @@ export const likePost = (id) => async (dispatch) => {
   }
 
   return false;
+};
+
+export const addComment = (postId, message) => async (dispatch) => {
+  try {
+    const token = findToken();
+    if (token === null) {
+      return false;
+    }
+
+    const newComment = {
+      username: parseFullUsername(),
+      message: message,
+    };
+
+    const { data } = await api.addComment(postId, newComment, token);
+    if (data.message === 'ok') {
+      dispatch({
+        type: ADD_COMMENT,
+        payload: data.post,
+      });
+      return true;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const deleteComment = (postId, commentId) => async (dispatch) => {
+  try {
+    const token = findToken();
+    if (token === null) {
+      return false;
+    }
+
+    const { data } = await api.deleteComment(postId, commentId, token);
+    if (data.message === 'ok') {
+      dispatch({
+        type: DELETE_COMMENT,
+        payload: data.post,
+      });
+      return true;
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };

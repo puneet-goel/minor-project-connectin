@@ -3,6 +3,8 @@ export const DELETE = 'DELETE';
 export const FETCH_ALL = 'FETCH_ALL';
 export const UPDATE = 'UPDATE';
 export const LIKE = 'LIKE';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';

@@ -215,3 +215,74 @@ export const getUserPost = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+export const createComment = async (req, res) => {
+  try {
+    const { id: _id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(_id)) {
+      return res.status(400).json({ message: 'Invalid Id' });
+    }
+
+    const post = await PostMessage.findById(_id).select({ comments: 1 }).lean();
+
+    if (!post) {
+      return res.status(400).json({ message: 'Invalid Id' });
+    }
+
+    post.comments.push({
+      _id: post.comments.length,
+      creator: req.body.username,
+      message: req.body.message,
+      createdAt: new Date(),
+    });
+
+    const updatedPost = await PostMessage.findByIdAndUpdate(
+      _id,
+      { comments: post.comments },
+      { new: true },
+    )
+      .select({ comments: 1 })
+      .lean();
+
+    return res.status(200).json({
+      message: 'ok',
+      post: updatedPost,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+export const deleteComment = async (req, res) => {
+  try {
+    const { id: _id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(_id)) {
+      return res.status(400).json({ message: 'Invalid Id' });
+    }
+
+    let post = await PostMessage.findById(_id).select({ comments: 1 }).lean();
+
+    if (!post) {
+      return res.status(400).json({ message: 'Invalid Id' });
+    }
+    post.comments = post.comments.filter(
+      (cur) => cur._id !== req.body.id && cur.creator === req.body.username,
+    );
+
+    const updatedPost = await PostMessage.findByIdAndUpdate(
+      _id,
+      { comments: post.comments },
+      { new: true },
+    )
+      .select({ comments: 1 })
+      .lean();
+
+    return res.status(200).json({
+      message: 'ok',
+      post: updatedPost,
+    });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};

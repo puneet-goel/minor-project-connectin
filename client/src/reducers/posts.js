@@ -4,6 +4,8 @@ import {
   UPDATE,
   DELETE,
   LIKE,
+  ADD_COMMENT,
+  DELETE_COMMENT,
 } from '../constants/actionTypes';
 
 const postReducer = (posts = [], action) => {
@@ -28,6 +30,17 @@ const postReducer = (posts = [], action) => {
       return action.payload.reverse();
     case CREATE:
       return [action.payload, ...posts];
+    case ADD_COMMENT:
+    case DELETE_COMMENT:
+      return posts.map((post) => {
+        if (post._id === action.payload._id) {
+          return {
+            ...post,
+            comments: action.payload.comments,
+          };
+        }
+        return post;
+      });
     default:
       return posts;
   }

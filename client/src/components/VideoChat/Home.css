@@ -42,7 +42,7 @@
 }
 
 @media all and (max-width: 500px) {
-  .player-chat{
+  .player-chat {
     flex-direction: column;
   }
 }

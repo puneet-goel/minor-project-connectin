@@ -10,7 +10,8 @@ export const fixAllPost = async (req, res) => {
       let post = await PostMessage.findById(curIndex).lean();
 
       // post.createdAt = new Date(post.createdAt);
-      post.createdAt = new Date();
+      // post.createdAt = new Date();
+      post.comments = [];
       // post.selectedFile = {
       //   url: '',
       //   imageId: '',

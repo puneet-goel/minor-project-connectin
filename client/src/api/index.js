@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://connectin.onrender.com';
+const URL = 'https://social-media-ctxa.onrender.com';
 // const URL = 'http://localhost:5000';
 
 const postUrl = URL + '/posts';
@@ -46,6 +46,23 @@ export const likePost = (id, token) =>
       },
     }
   );
+
+export const addComment = (postId, newComment, token) =>
+  axios.patch(`${postUrl}/${postId}/comment/`, newComment, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+export const deleteComment = (postId, commentId, token) =>
+  axios.delete(`${postUrl}/${postId}/comment/`, {
+    data: {
+      id: commentId,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
 export const loginUser = (user) => axios.post(authUrl + '/login/', user);
 

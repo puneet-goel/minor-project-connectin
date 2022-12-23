@@ -7,3 +7,55 @@
 .post-heading {
   font-family: 'Proxima Nova';
 }
+
+.avatarComment {
+  width: 45px !important;
+  height: 45px !important;
+  margin-right: 5px;
+}
+
+.avatarComment p {
+  display: flex;
+  left: 15%;
+  top: 14%;
+  font-size: 20px;
+}
+
+#add__comment {
+  padding: 12px;
+  width: 70%;
+  border-radius: 50px;
+  border: 1px solid black;
+}
+
+.submitComment {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: green;
+  cursor: pointer;
+  margin-left: 4px !important;
+}
+
+.comment_box {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 12px;
+  width: 90%;
+  margin: 0 auto 8px auto;
+}
+
+.comment__message {
+  margin: 5px 0 5px 0;
+  word-break: break-word;
+}
+
+.delete__comment {
+  cursor: pointer;
+}
+
+.time__comment {
+  font-size: smaller;
+  color: #aaa;
+}

@@ -4,7 +4,7 @@ import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
 const SocketContext = createContext();
-const socket = io('https://connectin.onrender.com');
+const socket = io('https://social-media-ctxa.onrender.com');
 // const socket = io('http://localhost:5000');
 
 const ContextProvider = ({ children }) => {
