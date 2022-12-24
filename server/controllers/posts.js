@@ -230,7 +230,7 @@ export const createComment = async (req, res) => {
     }
 
     post.comments.push({
-      _id: post.comments.length,
+      _id: req.body.username + new Date() + new Date().getMilliseconds(),
       creator: req.body.username,
       message: req.body.message,
       createdAt: new Date(),
@@ -267,7 +267,7 @@ export const deleteComment = async (req, res) => {
       return res.status(400).json({ message: 'Invalid Id' });
     }
     post.comments = post.comments.filter(
-      (cur) => cur._id !== req.body.id && cur.creator === req.body.username,
+      (cur) => !(cur._id === req.body.id && cur.creator === req.body.username),
     );
 
     const updatedPost = await PostMessage.findByIdAndUpdate(

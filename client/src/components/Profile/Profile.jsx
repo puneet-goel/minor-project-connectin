@@ -148,7 +148,7 @@ const Profile = () => {
             style={{ maxWidth: '540px' }}
           >
             <div className="row g-0 align-items-center text-center">
-              <div className="col-md-4 d-flex justify-content-center">
+              <div className="col-md-4 p-2 d-flex justify-content-center">
                 {userDetails.profileImage.url ? (
                   <img
                     src={userDetails.profileImage.url}
